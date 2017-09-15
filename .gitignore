@@ -1,0 +1,11 @@
+#ignorando los modulos de
+#backend
+node_modules
+#ignorando los
+#modulos del Fronted
+public/vendor#ignorando los modulos de
+#backend
+node_modules
+#ignorando los
+#modulos del Fronted
+public/vendor
