@@ -21,11 +21,9 @@ app.set('views', path.join(__dirname, 'views'));
 //aplicando configuraciones generales
 app = config(app);
 
-//creando ruta de prueba
-//expresion lamda== Function(){}
-app.get('/',(req,res)=>{
-    res.end('Hola Pila Completa 2, Viva JavaScript')
-});
+
+//expresion lamda  []=>()[]  == Function(){}
+
 
 //Consultando las variables de entorno
 //de la aplicacion
