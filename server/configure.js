@@ -19,6 +19,7 @@ module.exports = function(app){
     //configurando el Motor de plantillas
     //Handlerbars Template Engine
     //1.cargar y configurar el motor de plantillas en la app express
+    //handlebars
     app.engine('.hbs', exphdb.create({
         defaultLayout :'main',//pantilla por defecto
         extname :'.hbs',//Extencion de las vista

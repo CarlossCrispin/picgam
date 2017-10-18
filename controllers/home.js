@@ -3,6 +3,8 @@
 module.exports = {
     //action Methods
     index:(req,res)=>{
-        res.send('--> Seejecuta el Metodo Index del Controlador Home');
+        //res.send('--> Seejecuta el Metodo Index del Controlador Home');
+        res.render('index');
+       
     }
 };

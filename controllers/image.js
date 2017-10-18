@@ -1,8 +1,9 @@
 module.exports={
     //action Methods
     index: (req,res)=>{
-        res.end(`Se accede al controlador image y se ejecuta el action method 
-        "index" con el siguienteparametro -->${req.params.image_id}`);
+        //res.end(`Se accede al controlador image y se ejecuta el action method 
+        //"index" con el siguienteparametro -->${req.params.image_id}`);
+        res.render('image');
     },
     create: (req,res)=>{
         res.end(`se accede al controlador image y se ejecuta el action method 
