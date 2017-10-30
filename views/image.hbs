@@ -5,17 +5,18 @@
     <div class="panel-heading">
         <!--div.panel-title-->
         <div class="panel-title">
-            {{imagen.title}}
+            {{image.title}}
         </div>
     </div>
      <!-- BODY-->
       <!--div.panel-body-->
+      <!-- revisar si es image o imagen -->
     <div class="panel-body">
-        <p>{{imagen.description}}</p>
+        <p>{{image.description}}</p>
         <!--div.col-md-12.text-center-->
         <div class="col-md-12 text-center">
-            <img src="/public/upload({{imgen.filename}}
-            alt={{imagen.title}}"
+            <img src="/public/upload/temp/{{image.filename}}"
+            alt={{image.title}}"
             class="img-thumbnail">
         </div>
     </div>
@@ -57,7 +58,7 @@
                 </strong>
             </div>
             <div class="col-md-4 text-rigth">
-                <button class="btn btn-deafult btn-sm" 
+                <button class="btn btn-default btn-sm" 
                 id="btn-comment"
                 data-id={{image.uniqueId}}>
                     <i class="fa fa-comments-o">
@@ -124,7 +125,7 @@
             <!-- Avatar del usuario-->
                 <li class="media">
                     <a href="#"class="pull-left">
-                        <img src="http://wwww.gravatar.com/avatar{{gravatar}}" 
+                        <img src="https://s.gravatar.com/avatar/{{gravatar}}" 
                         alt="imagen avatar"
                         class="media-object">
                     </a>

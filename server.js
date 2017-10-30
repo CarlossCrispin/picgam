@@ -12,11 +12,16 @@ var app = express();
 //ser variable para toda la pagina
 app.set('port',process.env.PORT ||3000);
 app.set('ip', process.env.IP ||"0.0.0.0");
+// configura variable de entorno para dependencias 
+//locales o de un CDN (contend Delivery Nerwork)
+//depmode=['local' || 'cdn']
+app.set('depmode', process.env.DEPMODE || 'cdn');
+
 
 //configuración especial
 //pathidentifica la plataforma
 //dirname cambio de mauina
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname + '/views'));
 
 //aplicando configuraciones generales
 app = config(app);
@@ -30,7 +35,6 @@ app = config(app);
 
 const IP = app.get('ip');
 const PORT = app.get('port');
-
 
 
 //iniciando el servidor

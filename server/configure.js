@@ -6,7 +6,7 @@ var path = require('path'),
     bodyParser=require('body-parser'),
     cookieParser=require('cookie-parser'),
     morgan=require('morgan'),
-    methodOveride=require('method-override'),
+    methodOverride=require('method-override'),
     errorHandler= require('errorhandler'),
     moment=require('moment'),
     multer=require('multer');
@@ -19,9 +19,13 @@ module.exports = function(app){
     //configurando el Motor de plantillas
     //Handlerbars Template Engine
     //1.cargar y configurar el motor de plantillas en la app express
-    //handlebars
+    //handlebar
+    // if disfrasado para decidir con cual main inicia
+    var mainLayout = app.get('depmode') === 'local' ? "main-local" :"main";
+    console.log(`>ESTRATEGIA: ${app.get('depmode')}`);
+    console.log(`>tipo layout: ${mainLayout}`);
     app.engine('.hbs', exphdb.create({
-        defaultLayout :'main',//pantilla por defecto
+        defaultLayout : mainLayout,//pantilla por defecto
         extname :'.hbs',//Extencion de las vista
         layoustDir: path.join(app.get('views'),'layouts'),
         partialsDir: [path.join(app.get('views'),'partials')],
@@ -38,8 +42,15 @@ module.exports = function(app){
     app.use(morgan('dev'));
     app.use(bodyParser.urlencoded({'extended':true}));
     app.use(bodyParser.json());
-    app.use(methodOveride());
+    app.use(methodOverride());
     app.use(cookieParser('algun-valor-secreto-aqui'));
+
+    //habilitando a la aplicacion para recibir archivos desde formularios
+    //mediante la encriptacion mediante multipart/from-data
+    app.use(multer({
+        dest: path.join(__dirname,'../public/upload/temp')
+    }).any());
+
 
     // asignar las rutas a la configuracion
     app = routes(app);
